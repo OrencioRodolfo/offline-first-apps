@@ -1,1 +1,1 @@
-angular.module('offlineFirst', []);
+angular.module('offlineFirst', ['ngMaterial']);

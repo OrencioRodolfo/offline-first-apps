@@ -1,7 +1,16 @@
-<ul>
-  <li ng-repeat="bank in $ctrl.banks">
-    <span>{{ bank.full_name }}</span>
-    <p>{{ bank.short_name }}</p>
-    <img src="{{ bank.logo }}" alt="" ng-if="bank.logo" />
-  </li>
-</ul>
+<div layout-wrap="row">
+  <md-card ng-repeat="bank in $ctrl.banks" flex="50">
+    <img
+      src="{{ bank.logo }}"
+      class="md-card-image"
+      ng-if="bank.logo"
+      >
+    <md-card-content>
+      <h2>{{ bank.short_name }}</h2>
+      <p>{{ bank.full_name }}</p>
+    </md-card-content>
+    <md-card-footer ng-if="bank.website">
+      <a href="bank.website">{{ bank.website }}</a>
+    </md-card-footer>
+  </md-card>
+</div>
