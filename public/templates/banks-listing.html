@@ -1,0 +1,7 @@
+<ul>
+  <li ng-repeat="bank in $ctrl.banks">
+    <span>{{ bank.full_name }}</span>
+    <p>{{ bank.short_name }}</p>
+    <img src="{{ bank.logo }}" alt="" ng-if="bank.logo" />
+  </li>
+</ul>
