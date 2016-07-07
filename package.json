@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "init": "npm install && gulp",
     "start": "node app.js"
   },
   "dependencies": {
