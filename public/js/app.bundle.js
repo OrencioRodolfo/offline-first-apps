@@ -56,8 +56,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./components/banks.js": 2,
-		"./services/banks.js": 3
+		"./components/banks-wrapper.js": 2,
+		"./components/banks.js": 3,
+		"./services/banks.js": 4
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -79,6 +80,18 @@
 
 	angular
 	  .module('offlineFirst')
+	  .component('banksWrapper', {
+	    templateUrl: 'templates/banks-wrapper.html',
+	  });
+	 
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	angular
+	  .module('offlineFirst')
 	  .component('banksList', {
 	    templateUrl: 'templates/banks-listing.html',
 	    controller: ['BanksService', function PhoneListController(BanksService) {
@@ -90,7 +103,7 @@
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	angular

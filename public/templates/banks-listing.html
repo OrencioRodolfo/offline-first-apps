@@ -1,24 +1,12 @@
-<md-toolbar md-scroll-shrink>
-  <div class="md-toolbar-tools">
-    <h1>
-      <span>Offline First application</span>
-    </h1>
-  </div>
-</md-toolbar>
-<md-content style="height: 600px;" md-theme="altTheme">
-  <section>
-    <md-subheader class="md-primary">Banks</md-subheader>
-      <md-list layout-padding>
-        <md-list-item class="md-3-line" ng-repeat="bank in $ctrl.banks">
-          <img ng-src="{{ bank.logo }}" class="md-avatar" ng-if="bank.logo">
-          <div class="md-list-item-text">
-            <h3>{{ bank.short_name }}</h3>
-            <h4>{{ bank.full_name }}</h4>
-            <p>
-              <a href="bank.website">{{ bank.website }}</a>
-            </p>
-          </div>
-        </md-list-item>
-      </md-list>
-  </section>
-</md-content>
+<md-list layout-padding>
+  <md-list-item class="md-3-line" ng-repeat="bank in $ctrl.banks">
+    <img ng-src="{{ bank.logo }}" class="md-avatar" ng-if="bank.logo">
+    <div class="md-list-item-text">
+      <h3>{{ bank.short_name }}</h3>
+      <h4>{{ bank.full_name }}</h4>
+      <p>
+        <a href="bank.website">{{ bank.website }}</a>
+      </p>
+    </div>
+  </md-list-item>
+</md-list>
