@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px; }
 
-a {
-  color: #00B7FF; }
+.offline-first-icon {
+  margin-right: 10px;
+  width: 30px; }

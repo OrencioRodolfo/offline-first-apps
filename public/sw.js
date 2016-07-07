@@ -15,7 +15,7 @@ self.addEventListener('install', function(event) {
         'css/style.css',
         'templates/banks-wrapper.html',
         'templates/banks-listing.html',
-        '',
+        'img/no-logo.png',
       ]);
     })
   );
@@ -23,10 +23,14 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   if (event.request.url.match(/(goo\.gl)/g)) {
-    return fetch(event.request).catch(() => {
-      event.respondWith(caches.match('/img/no-logo.png'));
-      return;
-    });
+    event.respondWith(
+      caches.match('/img/no-logo.png').then(function(res) {
+        return fetch(event.request).catch(function(){
+          return res;
+        })
+      })
+    );
+    return;
   };
 
   event.respondWith(
