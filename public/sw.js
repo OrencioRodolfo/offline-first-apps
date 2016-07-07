@@ -16,6 +16,7 @@ self.addEventListener('install', function(event) {
         'templates/banks-wrapper.html',
         'templates/banks-listing.html',
         'img/no-logo.png',
+        'img/offline.png',
       ]);
     })
   );
