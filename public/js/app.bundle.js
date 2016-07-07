@@ -44,21 +44,42 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// require our service worker register
+	__webpack_require__(1);
+
+	// register angular app
 	angular.module('offlineFirst', ['ngMaterial']);
 
 	// require all the app scripts
-	const req = __webpack_require__(1);
+	const req = __webpack_require__(2);
 	req.keys().forEach((key) => req(key));
 
 
 /***/ },
 /* 1 */
+/***/ function(module, exports) {
+
+	(function() {
+	  console.log('asdasd');
+	  if (!navigator.serviceWorker)
+	    return;
+
+	  navigator.serviceWorker.register('./../sw.js').then(function(registration) {
+	    console.log('Registration worked!', registration.scope);
+	  }).catch(function(e) {
+	    console.log('Service Woker registration failed!', e);
+	  });
+	})();
+
+
+/***/ },
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./components/banks-wrapper.js": 2,
-		"./components/banks.js": 3,
-		"./services/banks.js": 4
+		"./components/banks-wrapper.js": 3,
+		"./components/banks.js": 4,
+		"./services/banks.js": 5
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -71,11 +92,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 1;
+	webpackContext.id = 2;
 
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports) {
 
 	angular
@@ -87,7 +108,7 @@
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	angular
@@ -103,7 +124,7 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	angular
