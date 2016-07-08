@@ -23,23 +23,5 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  if (event.request.url.match(/(goo\.gl)/g)) {
-    event.respondWith(
-      caches.match('/img/no-logo.png').then(function(res) {
-        return fetch(event.request).catch(function(){
-          return res;
-        })
-      })
-    );
-    return;
-  };
-
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
-      };
-      return fetch(event.request);
-    })
-  );
+  // @TODO carrega cache aqui
 });
