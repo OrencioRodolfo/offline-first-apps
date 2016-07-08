@@ -1,5 +1,4 @@
 (function() {
-  console.log('asdasd');
   if (!navigator.serviceWorker)
     return;
 
