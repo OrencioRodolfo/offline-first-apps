@@ -15,6 +15,7 @@ self.addEventListener('install', function(event) {
         'css/style.css',
         'templates/banks-wrapper.html',
         'templates/banks-listing.html',
+        // @TODO cache a default image for the banks logo while offline (no-logo.png) and all other images that can be retrieved from the web
       ]);
     })
   );
