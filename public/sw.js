@@ -15,25 +15,12 @@ self.addEventListener('install', function(event) {
         'css/style.css',
         'templates/banks-wrapper.html',
         'templates/banks-listing.html',
-        'img/no-logo.png',
-        'img/offline.png',
       ]);
     })
   );
 });
 
 self.addEventListener('fetch', function(event) {
-  if (event.request.url.match(/(goo\.gl)/g)) {
-    event.respondWith(
-      caches.match('/img/no-logo.png').then(function(res) {
-        return fetch(event.request).catch(function(){
-          return res;
-        })
-      })
-    );
-    return;
-  };
-
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
