@@ -7,15 +7,12 @@ angular
      var banks = [];
      var get = function() {
        var banksCache = new BanksCache();
-
-       return banksCache.getBanks().then(function(docs){
-         var request = $http.get('/banks').then((res) => {
-           var banks = res.data.banks.slice(30, 60);
-           banksCache.setBanks(banks);
-           return banks;
-         });
-
-         return docs || request;
+       // @TODO Load from IDB the list of banks.
+       // Be aware that you must update the IDB in background, in order to potentially store new banks
+       return $http.get('/banks').then((res) => {
+         var banks = res.data.banks.slice(30, 60);
+         banksCache.setBanks(banks);
+         return banks;
        });
      };
 
