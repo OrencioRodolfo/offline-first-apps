@@ -14,8 +14,8 @@ angular
            banksCache.setBanks(banks);
            return banks;
          });
-
-         return docs || request;
+         
+         return !!(docs && docs.length) ? docs : request;
        });
      };
 
