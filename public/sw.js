@@ -23,5 +23,5 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  // @TODO carrega cache aqui
+  // @TODO load assets
 });
