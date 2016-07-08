@@ -23,17 +23,8 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  if (event.request.url.match(/(goo\.gl)/g)) {
-    event.respondWith(
-      caches.match('/img/no-logo.png').then(function(res) {
-        return fetch(event.request).catch(function(){
-          return res;
-        })
-      })
-    );
-    return;
-  };
-
+  // @TODO load a default image ('/img/no-logo.png') from cache for the bank logo if there's no internet connection
+  // HINT - the url must match the following regex: '/(goo\.gl|png|jpg|gif)/g'
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
